@@ -46,3 +46,6 @@ jobs:
 
           echo "Pass versions as JSON to output"
           echo "::set-output name=versions::$(cat .release-please-manifest.json)"
+
+      - name: Print versions
+        run: echo ${{ steps.release-please.outputs.versions }}
