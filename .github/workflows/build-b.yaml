@@ -2,10 +2,8 @@ name: Build Image B
 
 on:
   push:
-    branches:
-      - main
-    paths:
-      - 'image-b/**'
+    tags:
+      - 'image-b-v*'
   pull_request:
     branches:
       - main

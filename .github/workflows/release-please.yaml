@@ -33,7 +33,8 @@ jobs:
             --repo-url ${{ github.repository }} \
             --token ${{ secrets.GITHUB_TOKEN }} \
             --api-url ${{ github.api_url }} \
-            --graphql-url ${{ github.api_url }}
+            --graphql-url ${{ github.api_url }} \
+            --debug
           echo "::endgroup::"
 
           echo "::group::Release Please - Creating Pull Requests"
@@ -41,7 +42,8 @@ jobs:
             --repo-url ${{ github.repository }} \
             --token ${{ secrets.GITHUB_TOKEN }} \
             --api-url ${{ github.api_url }} \
-            --graphql-url ${{ github.api_url }}
+            --graphql-url ${{ github.api_url }} \
+            --debug
           echo "::endgroup::"
 
           echo "Pass versions as JSON to output"
