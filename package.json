@@ -1,32 +1,5 @@
 {
   "devDependencies": {
-    "@csmith/release-it-calver-plugin": "^2022.12.15",
-    "@release-it/conventional-changelog": "^5.1.1",
-    "release-it": "^15.10.1"
-  },
-  "scripts": {
-    "release": "release-it"
-  },
-  "release-it": {
-    "npm": {
-      "publish": false,
-      "ignoreVersion": true,
-      "allowSameVersion": true,
-      "skipChecks": true
-    },
-    "git": {
-      "commitMessage": "chore: release v${version}"
-    },
-    "github": {
-      "release": true
-    },
-    "plugins": {
-      "@csmith/release-it-calver-plugin": {
-        "format": "yy.mm.minor",
-        "increment": "calendar",
-        "fallbackIncrement": "minor"
-      }
-    }
-  },
-  "version": "0.0.0"
+    "conventional-changelog-cli": "^2.2.2"
+  }
 }
