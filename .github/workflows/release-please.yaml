@@ -17,6 +17,13 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Get token
+        id: get-token
+        uses: tibdex/github-app-token@v1
+        with:
+          app_id: ${{ secrets.APP_ID }}
+          private_key: ${{ secrets.PRIVATE_KEY }}
+
       - name: Set up Node.js LTS and yarn
         uses: actions/setup-node@v2
         with:
@@ -31,7 +38,7 @@ jobs:
           echo "::group::Release Please - Creating Releases"
           npx release-please github-release \
             --repo-url ${{ github.repository }} \
-            --token ${{ secrets.GITHUB_TOKEN }} \
+            --token ${{ steps.get-token.outputs.token }} \
             --api-url ${{ github.api_url }} \
             --graphql-url ${{ github.api_url }} \
             --debug
@@ -40,7 +47,7 @@ jobs:
           echo "::group::Release Please - Creating Pull Requests"
           npx release-please release-pr \
             --repo-url ${{ github.repository }} \
-            --token ${{ secrets.GITHUB_TOKEN }} \
+            --token ${{ steps.get-token.outputs.token }} \
             --api-url ${{ github.api_url }} \
             --graphql-url ${{ github.api_url }} \
             --debug
