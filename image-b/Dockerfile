@@ -12,7 +12,6 @@ RUN apk add --no-cache \
     py3-wheel \
     rsync \
     tar \
-    unzip \
     wget
 
 ENTRYPOINT [ "/bin/bash" ]
