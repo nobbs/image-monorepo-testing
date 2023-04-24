@@ -25,17 +25,30 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Remove `refs/tags/$component-` from tag
+        if: startsWith(github.ref, 'refs/tags/')
+        run: |
+          echo "TAG=${GITHUB_REF/refs\/tags\/$COMPONENT-/}" >> $GITHUB_ENV
+        env:
+          GITHUB_REF: ${{ github.ref }}
+          COMPONENT: ${{ inputs.subdirectory }}
+
       - name: Generate image metadata
         id: meta
         uses: docker/metadata-action@v4
         with:
           images: ghcr.io/${{ github.repository }}/${{ inputs.subdirectory }}
           tags: |
+            # branch tags
             type=ref,event=branch
             type=ref,event=pr
-            type=semver,pattern={{version}}
-            type=semver,pattern={{major}}.{{minor}}
-            type=semver,pattern={{major}}
+
+            # release tags
+            type=semver,pattern={{version}},enable=${{ startsWith(github.ref, 'refs/tags/') }},value=${{ env.TAG }}
+            type=semver,pattern={{major}}.{{minor}},enable=${{ startsWith(github.ref, 'refs/tags/') }},value=${{ env.TAG }}
+            type=semver,pattern={{major}},enable=${{ startsWith(github.ref, 'refs/tags/') }},value=${{ env.TAG }}
+
+            # always fallback to sha
             type=sha
 
       - name: Build and push
