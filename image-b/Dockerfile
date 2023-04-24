@@ -13,7 +13,6 @@ RUN apk add --no-cache \
     rsync \
     tar \
     unzip \
-    wget \
-    zip
+    wget
 
 ENTRYPOINT [ "/bin/bash" ]
