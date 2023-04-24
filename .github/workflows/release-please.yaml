@@ -26,15 +26,23 @@ jobs:
         run: npm install -g release-please
 
       - name: Release Please
+        id: release-please
         run: |
           echo "::group::Release Please - Creating Releases"
           npx release-please github-release \
             --repo-url ${{ github.repository }} \
-            --token ${{ secrets.GITHUB_TOKEN }}
+            --token ${{ secrets.GITHUB_TOKEN }} \
+            --api-url ${{ github.api_url }} \
+            --graphql-url ${{ github.graphql_url }}
           echo "::endgroup::"
 
           echo "::group::Release Please - Creating Pull Requests"
           npx release-please release-pr \
             --repo-url ${{ github.repository }} \
-            --token ${{ secrets.GITHUB_TOKEN }}
+            --token ${{ secrets.GITHUB_TOKEN }} \
+            --api-url ${{ github.api_url }} \
+            --graphql-url ${{ github.graphql_url }}
           echo "::endgroup::"
+
+          echo "Pass versions as JSON to output"
+          echo "::set-output name=versions::$(cat .release-please-manifest.json)"
