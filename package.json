@@ -1,5 +1,8 @@
 {
   "devDependencies": {
-    "conventional-changelog-cli": "^2.2.2"
-  }
+    "gh-release": "*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nobbs/image-monorepo-testing.git"}
 }
