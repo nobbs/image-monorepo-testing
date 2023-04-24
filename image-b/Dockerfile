@@ -6,7 +6,6 @@ RUN apk add --no-cache \
     git \
     jq \
     python3 \
-    py3-pip \
     py3-setuptools \
     py3-wheel \
     rsync \
