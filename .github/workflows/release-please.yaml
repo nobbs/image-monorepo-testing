@@ -45,7 +45,7 @@ jobs:
           echo "::endgroup::"
 
           echo "Pass versions as JSON to output"
-          echo "::set-output name=versions::$(cat .release-please-manifest.json)"
+          echo "::set-output name=versions::$(cat .release-please-manifest.json | jq -c)"
 
       - name: Print versions
         run: echo ${{ steps.release-please.outputs.versions }}
