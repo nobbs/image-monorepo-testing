@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.1](https://github.com/nobbs/image-monorepo-testing/compare/image-b-v1.1.0...image-b-v1.1.1) (2023-04-24)
+
+
+### Miscellaneous Chores
+
+* **deps:** remove something ([27014c7](https://github.com/nobbs/image-monorepo-testing/commit/27014c7ca2177d0d535a88bdce117c35d06f3f79))
+
 ## [1.1.0](https://github.com/nobbs/image-monorepo-testing/compare/image-b-v1.0.0...image-b-v1.1.0) (2023-04-24)
 
 
