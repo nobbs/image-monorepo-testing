@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.1.0](https://github.com/nobbs/image-monorepo-testing/compare/image-b-v1.0.0...image-b-v1.1.0) (2023-04-24)
+
+
+### Features
+
+* only image-b ([829d9af](https://github.com/nobbs/image-monorepo-testing/commit/829d9af8fdc069d8ef5e71447b547d1c953eb42a))
+
+
+### Bug Fixes
+
+* both of them ([0d4d1db](https://github.com/nobbs/image-monorepo-testing/commit/0d4d1db6dfdb78f933b3f04fa613a9f621d19dae))
+
 ## 1.0.0 (2023-04-24)
 
 
