@@ -1,0 +1,20 @@
+name: Build Image B
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'image-b/**'
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'image-b/**'
+
+jobs:
+  build:
+    uses: ./.github/workflows/_build.yaml
+    secrets: inherit
+    with:
+      subdirectory: image-b
